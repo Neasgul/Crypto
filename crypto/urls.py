@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from server.views import HomeView
+from server.views import HomeView, InscriptionView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeView.as_view(), name='HomeView')
+    url(r'^$', HomeView.as_view(), name='HomeView'),
+    url(r'^inscription/', InscriptionView.as_view(), name='InscriptionView')
 ]

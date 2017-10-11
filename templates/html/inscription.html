@@ -2,11 +2,19 @@
     <head>
         <title>Application de crypto</title>
         {% load static %}
-        <script type="text/javascript" src="{% static 'javascript/home.js' %}"></script>
+        <script type="text/javascript" src="{% static 'javascript/inscription.js' %}"></script>
     </head>
     <body>
         <form action="" method="post">
             <table>
+                <tr>
+                    <td>
+                        Nom :
+                    </td>
+                    <td>
+                        <input type="text" id="name"/>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         Login :
@@ -24,11 +32,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <button type="button" onclick="NavigateToSignIn()" id="inscription" value="Inscription">Inscription</button>
-                    </td>
-                    <td>
-                        <button type="submit" id="connexion" value="Connexion">Connexion</button>
+                    <td colspan="2" align="center">
+                        <button type="submit" id="inscription" value="Inscription">Inscription</button>
                     </td>
                 </tr>
             </table>
