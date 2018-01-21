@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/node,webstorm+all
 cryptedDoc/
+*sqlite
+
 ### Node ###
 # Logs
 logs
