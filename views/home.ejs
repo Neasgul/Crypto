@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+<% include partials/Header.ejs %>
+<% console.log(connected); if(connected=='true') {%>
+        <p>You're connected <%=user.email%> <button type="button" onclick="location.href='/deconnexion'">Deconnexion</button> </p>
+
+        <button type="button" onclick="location.href='/upload'" >Upload a file</button>
+
+        <table>
+        <% for(var i=0; i < filelist.length; i++) { %>
+        <tr>
+            <td><%= filelist[i].name %></td>
+            <td><button type="button" onclick="location.href='/download/<%=filelist[i].name%>'">Download</button></td>
+        </tr>
+        <% } %>
+        </table>
+        <%} else { %>
+        <p>Please connect : </p>
+        <button type="button" onclick="location.href='/connexion'">Connexion</button>
+
+        <p>Or sign in : </p>
+        <button type="button" onclick="location.href='/inscription'">Inscription</button>
+    <%}%>
+</body>
+</html>
