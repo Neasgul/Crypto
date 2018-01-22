@@ -11,5 +11,6 @@ module.exports = {
 		user 		: 'root',
 		password 	: 'root'
 	},
-	cookie : 'cryptocookies'
+	cookie : 'cryptocookies',
+	dir : './cryptedDoc/'
 };

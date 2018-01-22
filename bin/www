@@ -8,6 +8,17 @@ var app = require('../app');
 var config = require('../utils/config');
 var debug = require('debug')('projectcrypto:server');
 var http = require('http');
+var fs = require('fs');
+
+
+/**
+ * Create cryptedDoc directory if not exist
+ */
+var dir = config.dir;
+if (!fs.existsSync(dir)){
+  fs.mkdirSync(dir);
+}
+
 
 /**
  * Get port from environment and store in Express.

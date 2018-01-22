@@ -48,7 +48,6 @@ router.post('/inscription', function (req, res, next) {
             }
             sendEmail(created);
             res.render('postinscription');
-            //TODO Send email
         });
     }
 });
