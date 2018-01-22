@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var fs  = require('fs');
+var nodemailer = require('nodemailer');
+
 var config 		= require('../utils/config');
 var UserController 	= require('../controllers').UserController;
 var ItemController 	= require('../controllers').ItemController;
@@ -44,6 +46,7 @@ router.post('/inscription', function (req, res, next) {
             if(error) {
                 res.render('error');
             }
+            sendEmail(created);
             res.render('postinscription');
             //TODO Send email
         });
@@ -92,6 +95,31 @@ function getFiles (dir, files_){
         }
     }
     return files_;
+}
+
+function sendEmail(user) {
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'project.crypto.document@gmail.com',
+            pass: 'ProjectCrypto'
+        }
+    });
+
+    var mailOptions = {
+        from: 'project.crypto.document@gmail.com',
+        to: user.email,
+        subject: 'Account Verification',
+        text: 'Your verification key is '+user.emailkey
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    })
 }
 
 module.exports = router;

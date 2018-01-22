@@ -38,7 +38,7 @@ UserController.prototype.createUser = function (req, callback) {
             charset: 'alphabetic'
         })
     }).then(function(created) {
-        callback(undefined, "Successfully created");
+        callback(undefined, created);
     }).catch(function(error) {
         callback(error);
     });
