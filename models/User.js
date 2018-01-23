@@ -18,7 +18,7 @@ module.exports = sequelize.import('User', function(sequelize, DataTypes) {
             },
             emailkey : {
                 type 		: DataTypes.STRING,
-                allowNull 	: true
+                allowNull 	: false
             }
         },
         {

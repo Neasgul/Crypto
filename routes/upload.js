@@ -20,7 +20,7 @@ router.post('/',function (req, res, next) {
     if (err) return res.status(500).json({ error: err })
     res.status(200).json({ uploaded: true })
   });
-  form.on('file', function (name, file) {
+  form.on('fileBegin', function (name, file) {
     const [fileName, fileExt] = file.name.split('.')
     file.path = path.join(config.dir, `${fileName}.${fileExt}`)
 

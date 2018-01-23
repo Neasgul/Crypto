@@ -1,4 +1,5 @@
 var UserModel 	= require('../models').User;
+var crypto      = require('crypto');
 
 var UserController = function() {};
 
@@ -30,10 +31,12 @@ UserController.prototype.getUserByEmail = function(email, callback) {
 };
 
 UserController.prototype.createUser = function (req, callback) {
+    var hash = crypto.createHash('sha256').update(req.body.password).digest('base64');
+    
      UserModel.create({
         email 		: req.body.email,
-        password	: req.body.password,
-        emailkey     	: require("randomstring").generate({
+        password	: hash,
+        emailkey    : require("randomstring").generate({
             length: 5,
             charset: 'alphabetic'
         })
